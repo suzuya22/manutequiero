@@ -1,51 +1,50 @@
 /* Configuración global del body */
 body {
-    font-family: 'Arial', sans-serif;
-    background-image: url('MULTIMEDIA/IMAGENES/IMG_4672.JPEG');
-    background-size: cover;
-    background-position: center;
-    color: #333;
+    font-family: 'Arial', sans-serif; /* Fuente profesional y discreta */
+    background-color: #F3E8D8; /* Color de fondo cálido y moderno */
+    background-image: url('https://raw.githubusercontent.com/suzuya22/santafeee.upb/main/MULTIMEDIA/IMAGENES/IMG_4672.JPEG'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    color: #333; /* Color de texto oscuro para contraste */
     margin: 0;
     padding: 0;
     text-align: center;
-    min-height: 100vh;
 }
 
 /* Estilo para el header */
 header {
-    background-color: rgba(255, 165, 0, 0.8);
-    color: #FFF;
+    background-color: rgba(255, 165, 0, 0.8); /* Naranja cálido con translucidez */
+    color: #FFF; /* Texto blanco para contraste */
     padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
 }
 
 /* Estilo para el título h1 */
 h1 {
-    font-size: 3em;
+    font-size: 3em; /* Título grande */
     margin: 0;
-    font-family: 'Georgia', serif;
+    font-family: 'Georgia', serif; /* Fuente profesional y elegante para el título */
 }
 
 /* Estilo para el main */
 main {
-    padding: 100px 20px;
-    background-color: rgba(255, 239, 204, 0.9);
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(255, 239, 204, 0.9); /* Fondo cálido y translúcido */
+    border-radius: 10px; /* Bordes redondeados para un efecto moderno */
+    max-width: 800px; /* Ancho máximo para centrar el contenido */
+    margin: 20px auto; /* Centrar el main en la página */
+    /* Asegúrate de que el fondo translúcido se vea sobre la imagen de fondo */
 }
 
 /* Estilo para el footer */
 footer {
-    background-color: rgba(255, 165, 0, 0.8);
-    color: #FFF;
+    background-color: rgba(255, 165, 0, 0.8); /* Naranja cálido con translucidez */
+    color: #FFF; /* Texto blanco para contraste */
     padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
     font-size: 0.9em;
 }
+
 
