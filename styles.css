@@ -19,11 +19,12 @@ header {
     color: #FFF;
     padding: 20px 0;
     position: relative;
+    z-index: 2;
 }
 
 #title-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     transition: all 0.5s ease;
 }
@@ -38,7 +39,7 @@ header {
 
 /* Estilo para los botones */
 #buttons-container {
-    display: flex;
+    display: none;
     gap: 10px;
     transition: all 0.5s ease;
 }
@@ -76,4 +77,6 @@ footer {
     bottom: 0;
     width: 100%;
     font-size: 0.9em;
+    z-index: 1;
 }
+
