@@ -1,8 +1,9 @@
 /* Configuración global del body */
+/* Configuración global del body */
 body {
     font-family: 'Arial', sans-serif; /* Fuente profesional y discreta */
     background-color: #F3E8D8; /* Color de fondo cálido y moderno */
-    background-image: url('https://github.com/suzuya22/santafeee.upb/blob/main/MULTIMEDIA/IMAGENES/IMG_4672.JPEG?raw=true'); /* Imagen de fondo */
+    background-image: url('https://raw.githubusercontent.com/suzuya22/santafeee.upb/main/MULTIMEDIA/IMAGENES/IMG_4672.JPEG'); /* Imagen de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
@@ -11,6 +12,7 @@ body {
     padding: 0;
     text-align: center;
 }
+
 /* Estilo para el header */
 header {
     background-color: rgba(255, 165, 0, 0.8); /* Naranja cálido con translucidez */
