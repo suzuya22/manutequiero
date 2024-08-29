@@ -1,4 +1,9 @@
-/* Configuración global del body */
+html, body {
+    height: 100%; /* Asegura que html y body ocupen toda la altura de la ventana */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el relleno por defecto */
+}
+
 body {
     font-family: 'Arial', sans-serif; /* Fuente profesional y discreta */
     background-color: #F3E8D8; /* Color de fondo cálido y moderno */
@@ -10,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    position: relative; /* Asegura que el posicionamiento sea relativo */
 }
 
 /* Estilo para el header */
@@ -33,7 +39,6 @@ main {
     border-radius: 10px; /* Bordes redondeados para un efecto moderno */
     max-width: 800px; /* Ancho máximo para centrar el contenido */
     margin: 20px auto; /* Centrar el main en la página */
-    /* Asegúrate de que el fondo translúcido se vea sobre la imagen de fondo */
 }
 
 /* Estilo para el footer */
