@@ -3,9 +3,6 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-}
-
-body {
     font-family: 'Arial', sans-serif;
     background-color: #F3E8D8;
     background-image: url('https://raw.githubusercontent.com/suzuya22/santafeee.upb/main/MULTIMEDIA/IMAGENES/IMG_4672.JPEG');
@@ -18,28 +15,26 @@ body {
 
 /* Estilo para el header */
 header {
-    position: relative; /* Posicionamiento relativo para los botones */
+    position: relative;
     background-color: rgba(255, 165, 0, 0.8);
     color: #FFF;
     padding: 20px 0;
-    overflow: hidden; /* Asegura que los botones no se salgan del header */
 }
 
 /* Estilo para el título h1 */
 #main-title {
     font-size: 3em;
     margin: 0;
-    font-family: 'Georgia', serif;
-    transition: all 0.5s ease; /* Transición para la animación */
+    transition: all 0.5s ease;
 }
 
 /* Estilo para los botones */
 #buttons-container {
+    display: none; /* Inicialmente ocultos */
     position: absolute;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-    display: none; /* Inicialmente ocultos */
     flex-direction: column;
 }
 
@@ -77,4 +72,3 @@ footer {
     width: 100%;
     font-size: 0.9em;
 }
-
