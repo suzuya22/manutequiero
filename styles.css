@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    min-height: 100vh;
 }
 
 /* Estilo para el header */
@@ -19,10 +20,6 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.5s ease;
 }
 
 /* Estilo para el título h1 */
@@ -30,34 +27,15 @@ h1 {
     font-size: 3em;
     margin: 0;
     font-family: 'Georgia', serif;
-    transition: all 0.5s ease;
-}
-
-/* Estilo para los botones de navegación */
-#nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-#nav-buttons button {
-    padding: 10px;
-    font-size: 1em;
-    background-color: #FF9800;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
 /* Estilo para el main */
 main {
-    padding: 20px;
+    padding: 100px 20px;
     background-color: rgba(255, 239, 204, 0.9);
     border-radius: 10px;
     max-width: 800px;
-    margin: 100px auto 20px auto;
+    margin: 100px auto;
 }
 
 /* Estilo para el footer */
@@ -71,17 +49,3 @@ footer {
     font-size: 0.9em;
 }
 
-/* Estilo para la animación */
-.scrolled header {
-    padding: 10px 0;
-    background-color: rgba(255, 165, 0, 0.9);
-}
-
-.scrolled h1 {
-    font-size: 1.5em;
-    margin-left: 20px;
-}
-
-.scrolled #nav-buttons button {
-    opacity: 1;
-}
