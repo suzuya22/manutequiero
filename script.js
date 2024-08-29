@@ -1,15 +1,14 @@
 window.addEventListener('scroll', function() {
     const title = document.getElementById('main-title');
-    const buttonsContainer = document.getElementById('buttons-container');
-    const titleContainer = document.getElementById('title-container');
+    const navButtons = document.getElementById('nav-buttons');
 
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
         title.style.fontSize = '1.5em';
-        titleContainer.style.justifyContent = 'space-between';
-        buttonsContainer.style.display = 'flex';
+        title.style.textAlign = 'left';
+        navButtons.style.display = 'block';
     } else {
         title.style.fontSize = '3em';
-        titleContainer.style.justifyContent = 'center';
-        buttonsContainer.style.display = 'none';
+        title.style.textAlign = 'center';
+        navButtons.style.display = 'none';
     }
 });
