@@ -12,7 +12,6 @@ body {
     text-align: center;
 }
 
-
 /* Estilo para el header */
 header {
     background-color: rgba(255, 165, 0, 0.8); /* Naranja cálido con translucidez */
@@ -34,6 +33,7 @@ main {
     border-radius: 10px; /* Bordes redondeados para un efecto moderno */
     max-width: 800px; /* Ancho máximo para centrar el contenido */
     margin: 20px auto; /* Centrar el main en la página */
+    /* Asegúrate de que el fondo translúcido se vea sobre la imagen de fondo */
 }
 
 /* Estilo para el footer */
