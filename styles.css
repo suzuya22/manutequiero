@@ -15,27 +15,32 @@ html, body {
 
 /* Estilo para el header */
 header {
-    position: relative;
     background-color: rgba(255, 165, 0, 0.8);
     color: #FFF;
     padding: 20px 0;
+    position: relative;
+}
+
+#title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
 }
 
 /* Estilo para el título h1 */
 #main-title {
     font-size: 3em;
     margin: 0;
+    font-family: 'Georgia', serif;
     transition: all 0.5s ease;
 }
 
 /* Estilo para los botones */
 #buttons-container {
-    display: none; /* Inicialmente ocultos */
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    transition: all 0.5s ease;
 }
 
 .nav-button {
@@ -43,10 +48,10 @@ header {
     color: #FFF;
     border: none;
     padding: 10px 20px;
-    margin: 5px 0;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
+    transition: all 0.5s ease;
 }
 
 .nav-button:hover {
