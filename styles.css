@@ -1,50 +1,76 @@
+/* Configuración global del body */
 html, body {
-    height: 100%; /* Asegura que html y body ocupen toda la altura de la ventana */
-    margin: 0; /* Elimina el margen por defecto */
-    padding: 0; /* Elimina el relleno por defecto */
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: 'Arial', sans-serif; /* Fuente profesional y discreta */
-    background-color: #F3E8D8; /* Color de fondo cálido y moderno */
-    background-image: url('https://raw.githubusercontent.com/suzuya22/santafeee.upb/main/MULTIMEDIA/IMAGENES/IMG_4672.JPEG'); /* Imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* No repite la imagen */
-    color: #333; /* Color de texto oscuro para contraste */
-    margin: 0;
-    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F3E8D8;
+    background-image: url('https://raw.githubusercontent.com/suzuya22/santafeee.upb/main/MULTIMEDIA/IMAGENES/IMG_4672.JPEG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
     text-align: center;
-    position: relative; /* Asegura que el posicionamiento sea relativo */
 }
 
 /* Estilo para el header */
 header {
-    background-color: rgba(255, 165, 0, 0.8); /* Naranja cálido con translucidez */
-    color: #FFF; /* Texto blanco para contraste */
+    position: relative; /* Posicionamiento relativo para los botones */
+    background-color: rgba(255, 165, 0, 0.8);
+    color: #FFF;
     padding: 20px 0;
+    overflow: hidden; /* Asegura que los botones no se salgan del header */
 }
 
 /* Estilo para el título h1 */
-h1 {
-    font-size: 3em; /* Título grande */
+#main-title {
+    font-size: 3em;
     margin: 0;
-    font-family: 'Georgia', serif; /* Fuente profesional y elegante para el título */
+    font-family: 'Georgia', serif;
+    transition: all 0.5s ease; /* Transición para la animación */
+}
+
+/* Estilo para los botones */
+#buttons-container {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: none; /* Inicialmente ocultos */
+    flex-direction: column;
+}
+
+.nav-button {
+    background-color: rgba(255, 165, 0, 0.8);
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 140, 0, 0.9);
 }
 
 /* Estilo para el main */
 main {
     padding: 20px;
-    background-color: rgba(255, 239, 204, 0.9); /* Fondo cálido y translúcido */
-    border-radius: 10px; /* Bordes redondeados para un efecto moderno */
-    max-width: 800px; /* Ancho máximo para centrar el contenido */
-    margin: 20px auto; /* Centrar el main en la página */
+    background-color: rgba(255, 239, 204, 0.9);
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 /* Estilo para el footer */
 footer {
-    background-color: rgba(255, 165, 0, 0.8); /* Naranja cálido con translucidez */
-    color: #FFF; /* Texto blanco para contraste */
+    background-color: rgba(255, 165, 0, 0.8);
+    color: #FFF;
     padding: 10px 0;
     position: fixed;
     bottom: 0;
