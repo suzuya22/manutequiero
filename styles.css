@@ -2,7 +2,7 @@
 body {
     font-family: 'Arial', sans-serif; /* Fuente profesional y discreta */
     background-color: #F3E8D8; /* Color de fondo cálido y moderno */
-    background-image: url('https://raw.githubusercontent.com/suzuya22/santafe.upb/main/images/MULTIMEDIA/IMAGENES/IMG_4672.JPEG'); /* Imagen de fondo */
+    background-image: url('https://raw.githubusercontent.com/suzuya22/santafe.upb/'); /* Imagen de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
