@@ -1,14 +1,11 @@
-window.addEventListener('scroll', function() {
-    const title = document.getElementById('main-title');
-    const navButtons = document.getElementById('nav-buttons');
+window.onscroll = function() {
+    let header = document.querySelector("header");
+    let mainTitle = document.getElementById("main-title");
+    let navButtons = document.getElementById("nav-buttons");
 
     if (window.scrollY > 50) {
-        title.style.fontSize = '1.5em';
-        title.style.textAlign = 'left';
-        navButtons.style.display = 'block';
+        header.classList.add("scrolled");
     } else {
-        title.style.fontSize = '3em';
-        title.style.textAlign = 'center';
-        navButtons.style.display = 'none';
+        header.classList.remove("scrolled");
     }
-});
+};
