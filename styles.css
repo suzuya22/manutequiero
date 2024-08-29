@@ -1,5 +1,4 @@
 /* Configuración global del body */
-/* Configuración global del body */
 body {
     font-family: 'Arial', sans-serif; /* Fuente profesional y discreta */
     background-color: #F3E8D8; /* Color de fondo cálido y moderno */
@@ -34,6 +33,7 @@ main {
     border-radius: 10px; /* Bordes redondeados para un efecto moderno */
     max-width: 800px; /* Ancho máximo para centrar el contenido */
     margin: 20px auto; /* Centrar el main en la página */
+    /* Asegúrate de que el fondo translúcido se vea sobre la imagen de fondo */
 }
 
 /* Estilo para el footer */
@@ -46,5 +46,4 @@ footer {
     width: 100%;
     font-size: 0.9em;
 }
-
 
