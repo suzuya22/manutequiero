@@ -47,22 +47,22 @@ h1 {
 }
 
 /* Corazones */
-.heart:nth-of-type(1) { top: 10%; left: 5%; }
-.heart:nth-of-type(2) { top: 20%; right: 10%; }
-.heart:nth-of-type(3) { bottom: 20%; left: 25%; }
-.heart:nth-of-type(4) { bottom: 10%; right: 20%; }
+.heart:nth-of-type(1) { top: 5%; left: 5%; }
+.heart:nth-of-type(2) { top: 5%; right: 5%; }
+.heart:nth-of-type(3) { bottom: 5%; left: 5%; }
+.heart:nth-of-type(4) { bottom: 5%; right: 5%; }
 
 /* Pandas */
-.panda:nth-of-type(1) { top: 15%; left: 25%; }
-.panda:nth-of-type(2) { top: 50%; left: 60%; }
-.panda:nth-of-type(3) { bottom: 20%; left: 15%; }
-.panda:nth-of-type(4) { bottom: 20%; right: 20%; }
+.panda:nth-of-type(1) { top: 20%; left: 30%; }
+.panda:nth-of-type(2) { top: 20%; right: 30%; }
+.panda:nth-of-type(3) { bottom: 20%; left: 30%; }
+.panda:nth-of-type(4) { bottom: 20%; right: 30%; }
 
 /* Pasteles de Pollo */
-.pastel:nth-of-type(1) { top: 30%; right: 20%; }
-.pastel:nth-of-type(2) { top: 60%; left: 15%; }
-.pastel:nth-of-type(3) { bottom: 20%; right: 30%; }
-.pastel:nth-of-type(4) { bottom: 10%; left: 35%; }
+.pastel:nth-of-type(1) { top: 40%; left: 10%; }
+.pastel:nth-of-type(2) { top: 40%; right: 10%; }
+.pastel:nth-of-type(3) { bottom: 40%; left: 10%; }
+.pastel:nth-of-type(4) { bottom: 40%; right: 10%; }
 
 /* Animación flotante */
 @keyframes float {
@@ -94,3 +94,4 @@ h1 {
         width: 50px; /* Tamaño ajustado para pantallas pequeñas */
     }
 }
+
