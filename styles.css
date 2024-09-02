@@ -39,7 +39,7 @@ h1 {
 /* Estilos generales para todas las decoraciones */
 .decoration {
     position: absolute;
-    width: 80px; /* Tamaño de las imágenes */
+    width: 10vw; /* Tamaño de las imágenes en función del viewport */
     height: auto;
     opacity: 0.8;
     animation: float 6s ease-in-out infinite;
@@ -49,74 +49,74 @@ h1 {
 /* Corazones */
 .heart:nth-of-type(1) {
     top: 10%;
-    left: 15%;
+    left: 10%;
     transform: rotate(20deg);
 }
 
 .heart:nth-of-type(2) {
-    top: 30%;
-    right: 10%;
+    top: 20%;
+    right: 15%;
     transform: rotate(-15deg);
 }
 
 .heart:nth-of-type(3) {
     bottom: 20%;
-    left: 25%;
+    left: 20%;
     transform: rotate(10deg);
 }
 
 .heart:nth-of-type(4) {
     bottom: 10%;
-    right: 20%;
+    right: 25%;
     transform: rotate(-25deg);
 }
 
 /* Pandas */
 .panda:nth-of-type(1) {
     top: 5%;
-    left: 35%;
+    left: 30%;
     transform: rotate(-10deg);
 }
 
 .panda:nth-of-type(2) {
-    top: 50%;
-    left: 5%;
+    top: 45%;
+    left: 10%;
     transform: rotate(30deg);
 }
 
 .panda:nth-of-type(3) {
-    bottom: 30%;
-    right: 15%;
+    bottom: 25%;
+    right: 20%;
     transform: rotate(-20deg);
 }
 
 .panda:nth-of-type(4) {
-    bottom: 5%;
-    left: 45%;
+    bottom: 10%;
+    left: 40%;
     transform: rotate(15deg);
 }
 
 /* Pasteles de Pollo */
 .pastel:nth-of-type(1) {
-    top: 20%;
-    right: 30%;
+    top: 25%;
+    right: 20%;
     transform: rotate(25deg);
 }
 
 .pastel:nth-of-type(2) {
-    top: 60%;
-    left: 20%;
+    top: 55%;
+    left: 25%;
     transform: rotate(-30deg);
 }
 
 .pastel:nth-of-type(3) {
-    bottom: 25%;
-    right: 35%;
+    bottom: 30%;
+    right: 30%;
     transform: rotate(5deg);
 }
 
 .pastel:nth-of-type(4) {
-    bottom: 15%;
+    bottom: 20%;
     left: 30%;
     transform: rotate(-10deg);
 }
@@ -124,10 +124,10 @@ h1 {
 /* Animación flotante */
 @keyframes float {
     0%, 100% {
-        transform: translateY(0) rotate(var(--rotation));
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-20px) rotate(var(--rotation));
+        transform: translateY(-20px);
     }
 }
 
@@ -138,7 +138,7 @@ h1 {
     }
 
     .decoration {
-        width: 60px;
+        width: 15vw; /* Tamaño ajustado para pantallas medianas */
     }
 
     /* Ajustar posiciones para pantallas medianas */
@@ -154,7 +154,7 @@ h1 {
     .pastel:nth-of-type(2),
     .pastel:nth-of-type(3),
     .pastel:nth-of-type(4) {
-        /* Puedes ajustar las posiciones si es necesario */
+        /* Ajustes específicos si es necesario */
     }
 }
 
@@ -164,7 +164,7 @@ h1 {
     }
 
     .decoration {
-        width: 50px;
+        width: 20vw; /* Tamaño ajustado para pantallas pequeñas */
     }
 
     /* Ajustar posiciones para pantallas pequeñas */
@@ -180,6 +180,6 @@ h1 {
     .pastel:nth-of-type(2),
     .pastel:nth-of-type(3),
     .pastel:nth-of-type(4) {
-        /* Puedes ajustar las posiciones si es necesario */
+        /* Ajustes específicos si es necesario */
     }
 }
