@@ -9,16 +9,61 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
+    overflow: hidden; /* Evita scroll innecesario */
 }
 
 header {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
     padding: 20px;
     border-radius: 10px; /* Bordes redondeados para un estilo moderno */
+    z-index: 1;
 }
 
 h1 {
     font-size: 3em; /* Título grande */
     margin: 0;
     font-family: 'Dancing Script', cursive; /* Fuente femenina y moderna */
+}
+
+.images-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Evita que las imágenes interfieran con la interacción del usuario */
+}
+
+.floating-image {
+    position: absolute;
+    width: 100px; /* Tamaño de la imagen */
+    height: auto;
+    animation: float 5s ease-in-out infinite; /* Animación flotante */
+}
+
+.heart {
+    top: 20%;
+    left: 10%;
+    animation-duration: 6s;
+}
+
+.panda {
+    top: 50%;
+    right: 10%;
+    animation-duration: 8s;
+}
+
+.pastel {
+    bottom: 20%;
+    left: 40%;
+    animation-duration: 7s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
