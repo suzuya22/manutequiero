@@ -1,69 +1,66 @@
 body {
-    font-family: 'Cursive', sans-serif; /* Fuente femenina y elegante */
-    background: linear-gradient(135deg, #6EC6FF, #81C784); /* Degradado moderno de azul a verde */
-    color: #FFF; /* Texto blanco para buen contraste */
+    background-color: #E0F7FA; /* Fondo azul claro */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente femenina y moderna */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    text-align: center;
-    overflow: hidden; /* Evita scroll innecesario */
-}
-
-header {
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
-    padding: 20px;
-    border-radius: 10px; /* Bordes redondeados para un estilo moderno */
-    z-index: 1;
+    position: relative;
+    overflow: hidden;
 }
 
 h1 {
-    font-size: 3em; /* Título grande */
-    margin: 0;
-    font-family: 'Dancing Script', cursive; /* Fuente femenina y moderna */
+    color: #00796B; /* Verde moderno */
+    font-size: 3em;
+    text-align: center;
+    z-index: 2; /* Asegura que el texto esté sobre las decoraciones */
 }
 
-.images-container {
+.decorations {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Evita que las imágenes interfieran con la interacción del usuario */
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Asegura que las decoraciones estén detrás del texto */
 }
 
-.floating-image {
+.decoration {
     position: absolute;
-    width: 100px; /* Tamaño de la imagen */
-    height: auto;
-    animation: float 5s ease-in-out infinite; /* Animación flotante */
+    opacity: 0.8;
+    width: 80px; /* Ajusta el tamaño de las imágenes */
+    height: 80px; /* Asegura que todas las imágenes sean cuadradas */
+}
+
+.panda {
+    top: 10%;
+    left: 10%;
 }
 
 .heart {
     top: 20%;
-    left: 10%;
-    animation-duration: 6s;
-}
-
-.panda {
-    top: 50%;
-    right: 10%;
-    animation-duration: 8s;
+    right: 15%;
 }
 
 .pastel {
-    bottom: 20%;
-    left: 40%;
-    animation-duration: 7s;
+    bottom: 10%;
+    left: 20%;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+/* Agrega más decoraciones a la página */
+.panda:nth-child(4) {
+    bottom: 15%;
+    right: 20%;
+}
+
+.heart:nth-child(5) {
+    bottom: 5%;
+    left: 50%;
+}
+
+.pastel:nth-child(6) {
+    top: 30%;
+    right: 25%;
 }
