@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return { left, top };
     }
 
-    // Inicializa posiciones aleatorias únicas
+    // Inicializa posiciones aleatorias únicas dentro del área visible
     decorations.forEach(decoration => {
         const { left, top } = getRandomUniquePosition();
         decoration.style.left = left;
@@ -50,12 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const x = (e.clientX || e.touches[0].clientX) - startX;
             const y = (e.clientY || e.touches[0].clientY) - startY;
 
-            // Calcular las nuevas posiciones asegurando que no salgan de los márgenes
-            const newLeft = Math.min(Math.max(startLeft + x, 0), window.innerWidth - decorationWidth) + 'px';
-            const newTop = Math.min(Math.max(startTop + y, 0), window.innerHeight - decorationHeight) + 'px';
-
-            selectedDecoration.style.left = newLeft;
-            selectedDecoration.style.top = newTop;
+            // Actualizar las posiciones de la imagen sin restricciones
+            selectedDecoration.style.left = (startLeft + x) + 'px';
+            selectedDecoration.style.top = (startTop + y) + 'px';
         }
 
         function onEnd() {
@@ -87,4 +84,3 @@ document.addEventListener('DOMContentLoaded', () => {
         decoration.addEventListener('dblclick', deselectImage);
     });
 });
-
