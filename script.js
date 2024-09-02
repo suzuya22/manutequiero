@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para manejar el arrastre de las imágenes
     function makeDraggable(event) {
         event.preventDefault();
+        
         const startX = event.clientX || event.touches[0].clientX;
         const startY = event.clientY || event.touches[0].clientY;
         const startLeft = this.offsetLeft;
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('touchend', onEnd);
     }
 
-    // Hacer las imágenes arrastrables
+    // Hacer las imágenes arrastrables solo cuando se mantenga presionado el clic
     decorations.forEach(decoration => {
         decoration.addEventListener('mousedown', makeDraggable);
         decoration.addEventListener('touchstart', makeDraggable);
