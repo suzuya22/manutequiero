@@ -42,8 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const startY = event.clientY || event.touches[0].clientY;
         const startLeft = this.offsetLeft;
         const startTop = this.offsetTop;
-        const decorationWidth = this.clientWidth;
-        const decorationHeight = this.clientHeight;
 
         function onMove(e) {
             e.preventDefault();
