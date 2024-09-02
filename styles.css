@@ -1,66 +1,185 @@
+/* Importar la fuente de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 body {
-    background-color: #E0F7FA; /* Fondo azul claro */
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente femenina y moderna */
+    font-family: 'Dancing Script', cursive; /* Fuente femenina y elegante */
+    background: linear-gradient(135deg, #6EC6FF, #81C784); /* Degradado moderno de azul a verde */
+    color: #FFF; /* Texto blanco para buen contraste */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Evita scroll innecesario */
+}
+
+.container {
+    position: relative;
+    z-index: 2; /* Asegura que el texto esté sobre las decoraciones */
 }
 
 h1 {
-    color: #00796B; /* Verde moderno */
-    font-size: 3em;
-    text-align: center;
-    z-index: 2; /* Asegura que el texto esté sobre las decoraciones */
+    font-size: 3em; /* Título grande */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejor legibilidad */
 }
 
 .decorations {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1; /* Asegura que las decoraciones estén detrás del texto */
 }
 
+/* Estilos generales para todas las decoraciones */
 .decoration {
     position: absolute;
+    width: 80px; /* Tamaño de las imágenes */
+    height: auto;
     opacity: 0.8;
-    width: 80px; /* Ajusta el tamaño de las imágenes */
-    height: 80px; /* Asegura que todas las imágenes sean cuadradas */
+    animation: float 6s ease-in-out infinite;
+    transform-origin: center;
 }
 
-.panda {
+/* Corazones */
+.heart:nth-of-type(1) {
     top: 10%;
-    left: 10%;
+    left: 15%;
+    transform: rotate(20deg);
 }
 
-.heart {
-    top: 20%;
-    right: 15%;
-}
-
-.pastel {
-    bottom: 10%;
-    left: 20%;
-}
-
-/* Agrega más decoraciones a la página */
-.panda:nth-child(4) {
-    bottom: 15%;
-    right: 20%;
-}
-
-.heart:nth-child(5) {
-    bottom: 5%;
-    left: 50%;
-}
-
-.pastel:nth-child(6) {
+.heart:nth-of-type(2) {
     top: 30%;
-    right: 25%;
+    right: 10%;
+    transform: rotate(-15deg);
+}
+
+.heart:nth-of-type(3) {
+    bottom: 20%;
+    left: 25%;
+    transform: rotate(10deg);
+}
+
+.heart:nth-of-type(4) {
+    bottom: 10%;
+    right: 20%;
+    transform: rotate(-25deg);
+}
+
+/* Pandas */
+.panda:nth-of-type(1) {
+    top: 5%;
+    left: 35%;
+    transform: rotate(-10deg);
+}
+
+.panda:nth-of-type(2) {
+    top: 50%;
+    left: 5%;
+    transform: rotate(30deg);
+}
+
+.panda:nth-of-type(3) {
+    bottom: 30%;
+    right: 15%;
+    transform: rotate(-20deg);
+}
+
+.panda:nth-of-type(4) {
+    bottom: 5%;
+    left: 45%;
+    transform: rotate(15deg);
+}
+
+/* Pasteles de Pollo */
+.pastel:nth-of-type(1) {
+    top: 20%;
+    right: 30%;
+    transform: rotate(25deg);
+}
+
+.pastel:nth-of-type(2) {
+    top: 60%;
+    left: 20%;
+    transform: rotate(-30deg);
+}
+
+.pastel:nth-of-type(3) {
+    bottom: 25%;
+    right: 35%;
+    transform: rotate(5deg);
+}
+
+.pastel:nth-of-type(4) {
+    bottom: 15%;
+    left: 30%;
+    transform: rotate(-10deg);
+}
+
+/* Animación flotante */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
+    50% {
+        transform: translateY(-20px) rotate(var(--rotation));
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .decoration {
+        width: 60px;
+    }
+
+    /* Ajustar posiciones para pantallas medianas */
+    .heart:nth-of-type(1),
+    .heart:nth-of-type(2),
+    .heart:nth-of-type(3),
+    .heart:nth-of-type(4),
+    .panda:nth-of-type(1),
+    .panda:nth-of-type(2),
+    .panda:nth-of-type(3),
+    .panda:nth-of-type(4),
+    .pastel:nth-of-type(1),
+    .pastel:nth-of-type(2),
+    .pastel:nth-of-type(3),
+    .pastel:nth-of-type(4) {
+        /* Puedes ajustar las posiciones si es necesario */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .decoration {
+        width: 50px;
+    }
+
+    /* Ajustar posiciones para pantallas pequeñas */
+    .heart:nth-of-type(1),
+    .heart:nth-of-type(2),
+    .heart:nth-of-type(3),
+    .heart:nth-of-type(4),
+    .panda:nth-of-type(1),
+    .panda:nth-of-type(2),
+    .panda:nth-of-type(3),
+    .panda:nth-of-type(4),
+    .pastel:nth-of-type(1),
+    .pastel:nth-of-type(2),
+    .pastel:nth-of-type(3),
+    .pastel:nth-of-type(4) {
+        /* Puedes ajustar las posiciones si es necesario */
+    }
 }
