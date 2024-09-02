@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para manejar el arrastre de las imágenes
     function makeDraggable(event) {
         event.preventDefault();
-        
         const startX = event.clientX || event.touches[0].clientX;
         const startY = event.clientY || event.touches[0].clientY;
         const startLeft = this.offsetLeft;
@@ -63,4 +62,3 @@ document.addEventListener('DOMContentLoaded', () => {
         decoration.addEventListener('touchstart', makeDraggable);
     });
 });
-
