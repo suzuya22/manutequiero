@@ -1,18 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     const decorations = document.querySelectorAll('.decoration');
+    const usedPositions = new Set();
 
-    // Función para generar posiciones aleatorias
-    function getRandomPosition() {
-        const x = window.innerWidth - 100; // Ajusta 100 para evitar que se salgan de la pantalla
-        const y = window.innerHeight - 100; // Ajusta 100 para evitar que se salgan de la pantalla
-        const left = Math.floor(Math.random() * x) + 'px';
-        const top = Math.floor(Math.random() * y) + 'px';
+    // Función para generar una posición única aleatoria
+    function getRandomUniquePosition() {
+        let left, top;
+        let unique = false;
+
+        while (!unique) {
+            left = Math.floor(Math.random() * (window.innerWidth - 100)) + 'px';
+            top = Math.floor(Math.random() * (window.innerHeight - 100)) + 'px';
+            const position = `${left}-${top}`;
+            if (!usedPositions.has(position)) {
+                usedPositions.add(position);
+                unique = true;
+            }
+        }
+
         return { left, top };
     }
 
-    // Inicializa posiciones aleatorias
+    // Inicializa posiciones aleatorias únicas
     decorations.forEach(decoration => {
-        const { left, top } = getRandomPosition();
+        const { left, top } = getRandomUniquePosition();
         decoration.style.left = left;
         decoration.style.top = top;
     });
@@ -41,3 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
