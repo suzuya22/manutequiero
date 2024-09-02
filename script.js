@@ -47,8 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const x = (e.clientX || e.touches[0].clientX) - startX;
             const y = (e.clientY || e.touches[0].clientY) - startY;
-            selectedDecoration.style.left = `${startLeft + x}px`;
-            selectedDecoration.style.top = `${startTop + y}px`;
+
+            // Calcular las nuevas posiciones asegurando que no salgan de los márgenes
+            const newLeft = Math.min(Math.max(startLeft + x, 0), window.innerWidth - selectedDecoration.clientWidth) + 'px';
+            const newTop = Math.min(Math.max(startTop + y, 0), window.innerHeight - selectedDecoration.clientHeight) + 'px';
+
+            selectedDecoration.style.left = newLeft;
+            selectedDecoration.style.top = newTop;
         }
 
         function onEnd() {
