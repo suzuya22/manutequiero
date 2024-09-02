@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const startY = event.clientY || event.touches[0].clientY;
         const startLeft = this.offsetLeft;
         const startTop = this.offsetTop;
+        const decorationWidth = this.clientWidth;
+        const decorationHeight = this.clientHeight;
 
         function onMove(e) {
             e.preventDefault();
@@ -49,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const y = (e.clientY || e.touches[0].clientY) - startY;
 
             // Calcular las nuevas posiciones asegurando que no salgan de los márgenes
-            const newLeft = Math.min(Math.max(startLeft + x, 0), window.innerWidth - selectedDecoration.clientWidth) + 'px';
-            const newTop = Math.min(Math.max(startTop + y, 0), window.innerHeight - selectedDecoration.clientHeight) + 'px';
+            const newLeft = Math.min(Math.max(startLeft + x, 0), window.innerWidth - decorationWidth) + 'px';
+            const newTop = Math.min(Math.max(startTop + y, 0), window.innerHeight - decorationHeight) + 'px';
 
             selectedDecoration.style.left = newLeft;
             selectedDecoration.style.top = newTop;
@@ -85,3 +87,4 @@ document.addEventListener('DOMContentLoaded', () => {
         decoration.addEventListener('dblclick', deselectImage);
     });
 });
+
