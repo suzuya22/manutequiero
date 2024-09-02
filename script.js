@@ -27,28 +27,37 @@ document.addEventListener('DOMContentLoaded', () => {
         decoration.style.top = top;
     });
 
+    // Función para manejar el arrastre de las imágenes
+    function makeDraggable(event) {
+        event.preventDefault();
+        const { clientX: startX, clientY: startY } = event;
+        const { offsetLeft: startLeft, offsetTop: startTop } = this;
+
+        function onMove(e) {
+            const x = e.clientX - startX;
+            const y = e.clientY - startY;
+            this.style.left = `${startLeft + x}px`;
+            this.style.top = `${startTop + y}px`;
+        }
+
+        function onEnd() {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onEnd);
+            document.removeEventListener('touchmove', onMove);
+            document.removeEventListener('touchend', onEnd);
+        }
+
+        document.addEventListener('mousemove', onMove.bind(this));
+        document.addEventListener('mouseup', onEnd);
+        document.addEventListener('touchmove', onMove.bind(this));
+        document.addEventListener('touchend', onEnd);
+    }
+
     // Hacer las imágenes arrastrables
     decorations.forEach(decoration => {
-        decoration.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            const { clientX: startX, clientY: startY } = e;
-            const { offsetLeft: startLeft, offsetTop: startTop } = decoration;
-
-            function onMouseMove(e) {
-                const x = e.clientX - startX;
-                const y = e.clientY - startY;
-                decoration.style.left = `${startLeft + x}px`;
-                decoration.style.top = `${startTop + y}px`;
-            }
-
-            function onMouseUp() {
-                document.removeEventListener('mousemove', onMouseMove);
-                document.removeEventListener('mouseup', onMouseUp);
-            }
-
-            document.addEventListener('mousemove', onMouseMove);
-            document.addEventListener('mouseup', onMouseUp);
-        });
+        decoration.addEventListener('mousedown', makeDraggable);
+        decoration.addEventListener('touchstart', makeDraggable);
     });
 });
+
 
