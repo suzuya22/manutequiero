@@ -30,12 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para manejar el arrastre de las imágenes
     function makeDraggable(event) {
         event.preventDefault();
-        const { clientX: startX, clientY: startY } = event;
-        const { offsetLeft: startLeft, offsetTop: startTop } = this;
+        const startX = event.clientX || event.touches[0].clientX;
+        const startY = event.clientY || event.touches[0].clientY;
+        const startLeft = this.offsetLeft;
+        const startTop = this.offsetTop;
 
         function onMove(e) {
-            const x = e.clientX - startX;
-            const y = e.clientY - startY;
+            e.preventDefault();
+            const x = (e.clientX || e.touches[0].clientX) - startX;
+            const y = (e.clientY || e.touches[0].clientY) - startY;
             this.style.left = `${startLeft + x}px`;
             this.style.top = `${startTop + y}px`;
         }
@@ -59,5 +62,4 @@ document.addEventListener('DOMContentLoaded', () => {
         decoration.addEventListener('touchstart', makeDraggable);
     });
 });
-
 
