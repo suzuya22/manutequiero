@@ -9,24 +9,41 @@
         /* Estilo para la sección de contenido con imagen y texto en columnas */
         .container {
             display: flex;
-            align-items: flex-start;
-            justify-content: center;
+            flex-direction: column; /* Cambia la dirección a columna para apilar imagen, texto y botón */
+            align-items: center;
             padding: 20px;
         }
         .image-column {
-            flex: 1;
             max-width: 400px; /* Ajusta el ancho máximo de la imagen */
-            margin-right: 20px;
+            margin-bottom: 20px; /* Espacio entre la imagen y el texto */
         }
         .image-column img {
             width: 100%;
             height: auto;
         }
         .text-column {
-            flex: 2;
             font-size: 1.2em; /* Ajusta el tamaño del texto */
             line-height: 1.6;
             max-width: 600px; /* Ajusta el ancho máximo del texto */
+            text-align: center; /* Centra el texto */
+            margin-bottom: 20px; /* Espacio entre el texto y el botón */
+        }
+        .button-container {
+            text-align: center; /* Centra el botón */
+            width: 100%;
+        }
+        .navigate-btn {
+            background-color: #007bff; /* Color de fondo azul */
+            color: #fff; /* Color del texto blanco */
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Sin subrayado */
+        }
+        .navigate-btn:hover {
+            background-color: #0056b3; /* Color de fondo azul oscuro al pasar el ratón */
         }
     </style>
 </head>
@@ -38,6 +55,9 @@
         <div class="text-column">
             <h1>¿Quién es Manuela?</h1>
             <p>La persona que para muchos es el ser más hermoso creado, para otros alguien que trasciende el propio concepto de lo que ser perfecto se refiere, es una personita linda llena de capacidades extraordinarias, alguien que te saca una sonrisa con solo ver su rostro, alguien en quien puedes perderte horas viendo sus ojos más bellos que una nebulosa, una persona graciosa con la cual nunca te sentirás mal, un orgullo para su familia, por lo inteligente, amable, responsable y capaz de hacer las cosas, una persona que desborda talento puro en lo que hace, llegando al punto de ser irreal, un ser al que no puedes encontrarle errores, asemejándose a una diosa en todo sentido, la madre de un lindo gatito único llamado Tiger, un pequeñín con una cabezota enorme y unos ojitos tan expresivos que parecen sacados de una caricatura, dicen que las mascotas se parecen a sus dueños y siendo honesto, parece que sí, el gatito más único para la niña más única que hay.</p>
+        </div>
+        <div class="button-container">
+            <a href="pagina3.html" class="navigate-btn">Ir a Página 3</a>
         </div>
     </div>
 </body>
