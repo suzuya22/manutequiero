@@ -3,7 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageContent = document.getElementById('pageContent');
     
     btn.addEventListener('click', () => {
-        window.location.href = 'pagina2.html'; // Redirige a la segunda página
+        pageContent.innerHTML = `
+            <h1>Bienvenido a la página de Manuela</h1>
+            <div id="newSection">
+                <h2>¿Quién es Manuela?</h2>
+            </div>
+        `;
+        btn.style.display = 'none'; // Ocultar el botón
+        document.title = "¿Quién es Manuela?"; // Cambiar el título de la página
     });
 
     // Script para mover las imágenes
