@@ -82,16 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
         decoration.addEventListener('dblclick', deselectImage);
     });
 
-    // JavaScript para manejar el cambio de contenido y título al presionar el botón
+    // Función para manejar el cambio de contenido y título al presionar el botón
     document.getElementById('changePageBtn').addEventListener('click', function() {
         document.getElementById('pageContent').innerHTML = `
-            <h1>Bienvenido a la página de Manuela</h1>
             <div id="newSection">
-                <h2>¡Descubre más sobre Manuela!</h2>
+                <h1>Bienvenido a la página de Manuela</h1>
             </div>
         `;
         document.getElementById('changePageBtn').style.display = 'none'; // Ocultar el botón
         document.title = "¿Quién es Manuela?"; // Cambiar el título de la página
+
+        // Aplicar la clase para mover el título
+        document.querySelector('h1').classList.add('hidden');
     });
 });
-
