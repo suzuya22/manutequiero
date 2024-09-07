@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>💙UNA PAGINA DEDICADA A MANUELA💙</h1>
-        <button id="changePageBtn">¿Quién es Manuela?</button>
+        <button id="changePageBtn" class="navigate-btn">¿Quién es Manuela?</button>
         <div id="pageContent">
             <div class="decorations">
                 <!-- Corazones -->
@@ -44,11 +44,10 @@
         document.getElementById('changePageBtn').addEventListener('click', function() {
             document.getElementById('pageContent').innerHTML = `
                 <h1>Bienvenido a la página de Manuela</h1>
-                <p>En esta página encontrarás información sobre Manuela.</p>
             `;
-            document.title = "¿Quién es Manuela?";
+            document.getElementById('changePageBtn').style.display = 'none'; // Ocultar el botón
+            document.title = "¿Quién es Manuela?"; // Cambiar el título de la página
         });
     </script>
 </body>
 </html>
-
