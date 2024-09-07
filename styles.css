@@ -27,6 +27,7 @@ h1 {
     font-size: 3em;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .decorations {
@@ -47,18 +48,9 @@ h1 {
     pointer-events: auto; /* Permite interactuar con las imágenes */
 }
 
-/* Corazones */
-.heart { /* Define posiciones específicas si es necesario */ }
-
-/* Pandas */
-.panda { /* Define posiciones específicas si es necesario */ }
-
-/* Pasteles de Pollo */
-.pastel { /* Define posiciones específicas si es necesario */ }
-
 /* Botón de redirección */
 .navigate-btn {
-    background-color: #007bff; /* Azul */
+    background-color: #00cccc; /* Verde agua */
     color: white;
     padding: 10px 20px;
     font-size: 16px;
@@ -68,16 +60,25 @@ h1 {
     position: relative;
     z-index: 2; /* Asegura que el botón esté por encima de otras decoraciones */
     margin-top: 20px;
-    outline: none; /* Elimina el borde de enfoque predeterminado */
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Elimina el efecto de resalte predeterminado */
+    transition: background-color 0.3s ease;
 }
 
 .navigate-btn:hover {
-    background-color: #0056b3; /* Tono más oscuro al pasar el ratón */
+    background-color: #009999; /* Tono más oscuro al pasar el ratón */
 }
 
-.navigate-btn:active {
-    background-color: #004494; /* Tono aún más oscuro al hacer clic */
+/* Nueva sección de Manuela */
+#newSection {
+    background-color: #0073e6;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+/* Nueva clase para el cambio del título */
+#pageContent h1.hidden {
+    transform: translateY(-100px); /* Mueve el título hacia arriba */
+    opacity: 0; /* Hace que el título se desvanezca */
 }
 
 /* Responsividad */
