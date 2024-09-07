@@ -1,44 +1,97 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('changePageBtn');
-    const pageContent = document.getElementById('pageContent');
-    
-    btn.addEventListener('click', () => {
-        pageContent.innerHTML = `
+    const decorations = document.querySelectorAll('.decoration');
+    const usedPositions = new Set();
+    let selectedDecoration = null; // Para rastrear la imagen seleccionada
+
+    // Función para generar una posición única aleatoria
+    function getRandomUniquePosition() {
+        let left, top;
+        let unique = false;
+
+        while (!unique) {
+            left = Math.floor(Math.random() * (window.innerWidth - 100)) + 'px';
+            top = Math.floor(Math.random() * (window.innerHeight - 100)) + 'px';
+            const position = `${left}-${top}`;
+            if (!usedPositions.has(position)) {
+                usedPositions.add(position);
+                unique = true;
+            }
+        }
+
+        return { left, top };
+    }
+
+    // Inicializa posiciones aleatorias únicas dentro del área visible
+    decorations.forEach(decoration => {
+        const { left, top } = getRandomUniquePosition();
+        decoration.style.left = left;
+        decoration.style.top = top;
+    });
+
+    // Función para manejar el arrastre de las imágenes
+    function makeDraggable(event) {
+        event.preventDefault();
+
+        if (selectedDecoration) {
+            return; // Si ya hay una imagen seleccionada, no hacer nada
+        }
+
+        selectedDecoration = this;
+
+        const startX = event.clientX || event.touches[0].clientX;
+        const startY = event.clientY || event.touches[0].clientY;
+        const startLeft = this.offsetLeft;
+        const startTop = this.offsetTop;
+
+        function onMove(e) {
+            e.preventDefault();
+            const x = (e.clientX || e.touches[0].clientX) - startX;
+            const y = (e.clientY || e.touches[0].clientY) - startY;
+
+            // Actualizar las posiciones de la imagen sin restricciones
+            selectedDecoration.style.left = (startLeft + x) + 'px';
+            selectedDecoration.style.top = (startTop + y) + 'px';
+        }
+
+        function onEnd() {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onEnd);
+            document.removeEventListener('touchmove', onMove);
+            document.removeEventListener('touchend', onEnd);
+            selectedDecoration = null; // Deseleccionar al finalizar el arrastre
+        }
+
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onEnd);
+        document.addEventListener('touchmove', onMove);
+        document.addEventListener('touchend', onEnd);
+    }
+
+    // Función para manejar el doble clic (deseleccionar imagen)
+    function deselectImage(event) {
+        event.preventDefault();
+        if (selectedDecoration === this) {
+            selectedDecoration = null;
+        }
+    }
+
+    // Hacer las imágenes arrastrables solo cuando se mantenga presionado el clic
+    decorations.forEach(decoration => {
+        decoration.addEventListener('mousedown', makeDraggable);
+        decoration.addEventListener('touchstart', makeDraggable);
+        decoration.addEventListener('dblclick', deselectImage);
+    });
+
+    // JavaScript para manejar el cambio de contenido y título al presionar el botón
+    document.getElementById('changePageBtn').addEventListener('click', function() {
+        document.getElementById('pageContent').innerHTML = `
             <h1>Bienvenido a la página de Manuela</h1>
             <div id="newSection">
-                <h2>¿Quién es Manuela?</h2>
+                <h2>¡Descubre más sobre Manuela!</h2>
             </div>
         `;
-        btn.style.display = 'none'; // Ocultar el botón
+        document.getElementById('changePageBtn').style.display = 'none'; // Ocultar el botón
         document.title = "¿Quién es Manuela?"; // Cambiar el título de la página
     });
-
-    // Script para mover las imágenes
-    const decorations = document.querySelectorAll('.decoration');
-
-    decorations.forEach(img => {
-        img.addEventListener('mousedown', function (e) {
-            const rect = img.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
-
-            function moveAt(e) {
-                img.style.left = e.clientX - offsetX + 'px';
-                img.style.top = e.clientY - offsetY + 'px';
-            }
-
-            function stopMove() {
-                document.removeEventListener('mousemove', moveAt);
-                document.removeEventListener('mouseup', stopMove);
-            }
-
-            document.addEventListener('mousemove', moveAt);
-            document.addEventListener('mouseup', stopMove);
-        });
-
-        img.addEventListener('dblclick', () => {
-            img.style.left = '';
-            img.style.top = '';
-        });
-    });
 });
+
