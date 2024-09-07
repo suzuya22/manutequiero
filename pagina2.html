@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Quién es Manuela?</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilo para la sección de contenido con imagen y texto en columnas */
+        /* Estilo específico para la Página 2 */
+        body {
+            background-color: #FFDAB9; /* Fondo con color neutro claro */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente divertida */
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Evita el scroll horizontal */
+        }
         .container {
             display: flex;
-            flex-direction: column; /* Cambia la dirección a columna para apilar imagen, texto y botón */
-            align-items: center;
+            align-items: flex-start;
+            justify-content: center;
             padding: 20px;
+            flex-direction: column;
+            max-width: 100%; /* Asegura que el contenido no se desborde horizontalmente */
+            box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
         }
         .image-column {
             max-width: 400px; /* Ajusta el ancho máximo de la imagen */
-            margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+            margin: 0 auto;
         }
         .image-column img {
             width: 100%;
@@ -25,40 +36,36 @@
             font-size: 1.2em; /* Ajusta el tamaño del texto */
             line-height: 1.6;
             max-width: 600px; /* Ajusta el ancho máximo del texto */
-            text-align: center; /* Centra el texto */
-            margin-bottom: 20px; /* Espacio entre el texto y el botón */
-        }
-        .button-container {
-            text-align: center; /* Centra el botón */
-            width: 100%;
+            margin: 20px auto; /* Centra el texto y añade un margen */
+            padding: 0 20px;
         }
         .navigate-btn {
-            background-color: #007bff; /* Color de fondo azul */
-            color: #fff; /* Color del texto blanco */
+            background-color: #FFB300; /* Amarillo más oscuro para el botón */
+            color: #FFF;
             border: none;
             padding: 10px 20px;
             font-size: 1em;
             border-radius: 5px;
             cursor: pointer;
-            text-decoration: none; /* Sin subrayado */
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+            text-decoration: none; /* Quita el subrayado del enlace */
         }
         .navigate-btn:hover {
-            background-color: #0056b3; /* Color de fondo azul oscuro al pasar el ratón */
+            background-color: #FF8F00; /* Amarillo aún más oscuro al pasar el ratón */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="image-column">
-            <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/manuhermosa.PNG?raw=true" alt="Imagen de Manuela"> <!-- Reemplaza con la URL de tu imagen -->
+            <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/manuhermosa.PNG?raw=true" alt="Imagen de Manuela">
         </div>
         <div class="text-column">
             <h1>¿Quién es Manuela?</h1>
             <p>La persona que para muchos es el ser más hermoso creado, para otros alguien que trasciende el propio concepto de lo que ser perfecto se refiere, es una personita linda llena de capacidades extraordinarias, alguien que te saca una sonrisa con solo ver su rostro, alguien en quien puedes perderte horas viendo sus ojos más bellos que una nebulosa, una persona graciosa con la cual nunca te sentirás mal, un orgullo para su familia, por lo inteligente, amable, responsable y capaz de hacer las cosas, una persona que desborda talento puro en lo que hace, llegando al punto de ser irreal, un ser al que no puedes encontrarle errores, asemejándose a una diosa en todo sentido, la madre de un lindo gatito único llamado Tiger, un pequeñín con una cabezota enorme y unos ojitos tan expresivos que parecen sacados de una caricatura, dicen que las mascotas se parecen a sus dueños y siendo honesto, parece que sí, el gatito más único para la niña más única que hay.</p>
         </div>
-        <div class="button-container">
-            <a href="pagina3.html" class="navigate-btn">Ir a Página 3</a>
-        </div>
+        <a href="pagina3.html" class="navigate-btn">Ir a Página 3</a>
     </div>
 </body>
 </html>
