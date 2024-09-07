@@ -48,13 +48,19 @@ h1 {
 }
 
 /* Corazones */
-.heart { /* Define posiciones específicas si es necesario */ }
+.heart {
+    /* Define posiciones específicas si es necesario */
+}
 
 /* Pandas */
-.panda { /* Define posiciones específicas si es necesario */ }
+.panda {
+    /* Define posiciones específicas si es necesario */
+}
 
 /* Pasteles de Pollo */
-.pastel { /* Define posiciones específicas si es necesario */ }
+.pastel {
+    /* Define posiciones específicas si es necesario */
+}
 
 /* Botón de redirección */
 .navigate-btn {
@@ -100,3 +106,4 @@ h1 {
         width: 50px;
     }
 }
+
