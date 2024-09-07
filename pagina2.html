@@ -6,20 +6,37 @@
     <title>¿Quién es Manuela?</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Incrementar el tamaño del texto en la página 2 */
-        .content {
-            font-size: 1.9em; /* Ajustar este valor según sea necesario */
-            line-height: 1.6;
+        /* Estilo para la sección de contenido con imagen y texto en columnas */
+        .container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
             padding: 20px;
-            max-width: 800px;
-            margin: auto;
+        }
+        .image-column {
+            flex: 1;
+            max-width: 400px; /* Ajusta el ancho máximo de la imagen */
+            margin-right: 20px;
+        }
+        .image-column img {
+            width: 100%;
+            height: auto;
+        }
+        .text-column {
+            flex: 2;
+            font-size: 1.2em; /* Ajusta el tamaño del texto */
+            line-height: 1.6;
+            max-width: 600px; /* Ajusta el ancho máximo del texto */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>¿Quién es Manuela?</h1>
-        <div class="content">
+        <div class="image-column">
+            <img src="URL_DE_LA_IMAGEN_AQUI" alt="Imagen de Manuela"> <!-- Reemplaza con la URL de tu imagen -->
+        </div>
+        <div class="text-column">
+            <h1>¿Quién es Manuela?</h1>
             <p>La persona que para muchos es el ser más hermoso creado, para otros alguien que trasciende el propio concepto de lo que ser perfecto se refiere, es una personita linda llena de capacidades extraordinarias, alguien que te saca una sonrisa con solo ver su rostro, alguien en quien puedes perderte horas viendo sus ojos más bellos que una nebulosa, una persona graciosa con la cual nunca te sentirás mal, un orgullo para su familia, por lo inteligente, amable, responsable y capaz de hacer las cosas, una persona que desborda talento puro en lo que hace, llegando al punto de ser irreal, un ser al que no puedes encontrarle errores, asemejándose a una diosa en todo sentido, la madre de un lindo gatito único llamado Tiger, un pequeñín con una cabezota enorme y unos ojitos tan expresivos que parecen sacados de una caricatura, dicen que las mascotas se parecen a sus dueños y siendo honesto, parece que sí, el gatito más único para la niña más única que hay.</p>
         </div>
     </div>
