@@ -48,15 +48,38 @@ h1 {
 }
 
 /* Corazones */
-.heart { /* Define posiciones específicas si es necesario */
-}
+.heart { /* Define posiciones específicas si es necesario */ }
 
 /* Pandas */
-.panda { /* Define posiciones específicas si es necesario */
-}
+.panda { /* Define posiciones específicas si es necesario */ }
 
 /* Pasteles de Pollo */
-.pastel { /* Define posiciones específicas si es necesario */
+.pastel { /* Define posiciones específicas si es necesario */ }
+
+/* Botón de redirección */
+.navigate-btn {
+    background-color: #00cccc; /* Verde agua */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2; /* Asegura que el botón esté por encima de otras decoraciones */
+    margin-top: 20px;
+}
+
+.navigate-btn:hover {
+    background-color: #009999; /* Tono más oscuro al pasar el ratón */
+}
+
+/* Nueva sección de Manuela */
+#newSection {
+    background-color: #0073e6;
+    color: white;
+    padding: 50px;
+    text-align: center;
 }
 
 /* Responsividad */
