@@ -35,7 +35,20 @@
             <img src="https://raw.githubusercontent.com/suzuya22/santafeee.upb/main/MULTIMEDIA/IMAGENES/imagen_2024-09-01_212313063-removebg-preview.png" class="decoration pastel" alt="Pastel de Pollo">
             <img src="https://raw.githubusercontent.com/suzuya22/santafeee.upb/main/MULTIMEDIA/IMAGENES/imagen_2024-09-01_212313063-removebg-preview.png" class="decoration pastel" alt="Pastel de Pollo">
         </div>
+        
+        <!-- Botón para redirigir -->
+        <button class="navigate-btn" onclick="openNewSection()">Ir a Manuela</button>
+        
+        <!-- Nueva sección que se muestra al hacer clic en el botón -->
+        <div id="newSection" style="display:none;">
+            <h2>Bienvenido a la página de Manuela</h2>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        function openNewSection() {
+            document.getElementById("newSection").style.display = "block";
+        }
+    </script>
 </body>
 </html>
