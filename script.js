@@ -82,3 +82,4 @@ document.addEventListener('DOMContentLoaded', () => {
         decoration.addEventListener('dblclick', deselectImage);
     });
 });
+
