@@ -13,12 +13,10 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Evita el scroll horizontal */
+            overflow: auto; /* Permite el scroll vertical */
         }
         .container {
             padding: 20px;
-            max-width: 100%; /* Asegura que el contenido no se desborde horizontalmente */
-            box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
         }
         h1 {
             font-size: 4em;
@@ -31,13 +29,6 @@
             height: auto;
             margin: 20px 0;
         }
-        .text-column {
-            font-size: 1.2em; /* Ajusta el tamaño del texto */
-            line-height: 1.6;
-            max-width: 600px; /* Ajusta el ancho máximo del texto */
-            margin: 0 auto; /* Centra el texto */
-            padding: 0 20px;
-        }
         .navigate-btn {
             background-color: #FFB300; /* Amarillo más oscuro para el botón */
             color: #FFF;
@@ -48,6 +39,7 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
             margin-top: 20px;
+            text-decoration: none; /* Quita el subrayado del enlace */
         }
         .navigate-btn:hover {
             background-color: #FF8F00; /* Amarillo aún más oscuro al pasar el ratón */
@@ -58,10 +50,8 @@
     <div class="container">
         <h1>TIGER</h1>
         <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/0fc6202e-0977-4e57-8f08-870d4fbd6b89.jpg?raw=true" alt="Gato Garfield" class="cat-image"> <!-- Reemplaza con la URL de tu imagen -->
-        <div class="text-column">
-            <p>Es imposible no hacer una página exclusiva para este pequeñito. Tiger es el gato de Manuela, uno de los seres más importantes para ella en su vida. Es un gato de patas cortas y complexión gruesa, que a su vez es muy grande. Destaca por ser juguetón con ella y odiar a los hombres (menos al padre de Manu). Pocas personas de su círculo han tenido la suerte de conocer a Tiger en algún momento, pero todos los que lo hicieron saben que fue algo muy lindo. Este gatito desprende una cantidad de personalidad increíble que no puedes ver en otros gatos. Es simplemente maravilloso poder verlo. A todo aquel que lea esto y en algún momento tenga la oportunidad de conocer a Tiger, hágalo. Es una oportunidad que no debes perder. Es un gato precioso.</p>
-        </div>
-        <a href="pagina2.html" class="navigate-btn">Ir a Página 2</a>
+        <p>Es imposible no hacer una página exclusiva para este pequeñito. Tiger es el gato de Manuela, uno de los seres más importantes para ella en su vida. Es un gato de patas cortas y complexión gruesa, que a su vez es muy grande. Destaca por ser juguetón con ella y odiar a los hombres (menos al padre de Manu). Pocas personas de su círculo tuvieron la suerte de poder conocer a Tiger en algún momento, pero todos los que lo hicieron saben que fue algo muy lindo. Este gatito desprende una cantidad de personalidad increíble que no puedes ver en otros gatos. Es simplemente maravilloso poder verlo. A todo aquel que lea esto y en algún momento tenga la oportunidad de conocer a Tiger, hágalo. Es una oportunidad que no debes perder. Es un gato precioso.</p>
+        <a href="index.html" class="navigate-btn">Volver al Inicio</a>
     </div>
 </body>
 </html>
