@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página 3 - Tiger</title>
     <style>
-        /* Estilo específico para la Página 3 */
         body {
             background-color: #FFA500; /* Fondo naranja */
             font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente divertida */
@@ -23,8 +22,15 @@
         h1 {
             font-size: 4em;
             color: #fff; /* Color blanco para el texto */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra de texto para mayor impacto */
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente divertida */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra de texto */
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 20px auto;
+            width: 80%;
+            line-height: 1.6em;
+            color: #fff;
         }
 
         .cat-image {
@@ -34,40 +40,38 @@
         }
 
         .navigate-btn {
-            background-color: #FFB300; /* Amarillo más oscuro para el botón */
+            background-color: #FFB300;
             color: #FFF;
             border: none;
             padding: 10px 20px;
             font-size: 1em;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
             margin-top: 20px;
         }
 
         .navigate-btn:hover {
-            background-color: #FF8F00; /* Amarillo aún más oscuro al pasar el ratón */
+            background-color: #FF8F00;
         }
 
-        /* Estilo para las imágenes flotantes */
         .floating-image {
             position: absolute;
-            width: 100px; /* Tamaño de la imagen */
+            width: 100px;
             height: auto;
             opacity: 0.8;
             cursor: grab;
-            transition: transform 0.3s ease; /* Efecto de transición */
+            transition: transform 0.3s ease;
         }
 
-        /* Estilo para el texto tipo onomatopeya */
         .onomatopoeia {
             position: absolute;
             font-size: 1em;
-            color: #FFD700; /* Color amarillo oro */
-            background-color: rgba(0, 0, 0, 0.6); /* Fondo negro translúcido */
+            color: #FFD700;
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 5px;
             border-radius: 5px;
-            pointer-events: none; /* No interferir con el clic en la página */
+            pointer-events: none;
             transform: translateY(-50px);
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -77,74 +81,71 @@
 <body>
     <div class="container">
         <h1>TIGER</h1>
-        <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/imagen_2024-09-08_042919787-removebg-preview.png?raw=true" alt="Tiger" class="cat-image">
-
-        <!-- Botón de navegación para volver al inicio -->
+        <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/tiger_main.png?raw=true" alt="Tiger" class="cat-image">
+        <p>
+            Es imposible no hacer una página exclusiva para este pequeñito. Tiger es el gato de Manuela, 
+            uno de los seres más importantes para ella en su vida. Es un gato de patas cortas y complexión gruesa, 
+            que a su vez es muy grande. Destaca por ser juguetón con ella y odiar a los hombres (menos al padre de Manu).
+            Pocas personas de su círculo han tenido la suerte de conocer a Tiger en algún momento, 
+            pero todos los que lo hicieron saben que fue algo muy lindo. Este gatito desprende una cantidad de personalidad increíble 
+            que no puedes ver en otros gatos. Es simplemente maravilloso poder verlo. 
+            A todo aquel que lea esto y en algún momento tenga la oportunidad de conocer a Tiger, hágalo. 
+            Es una oportunidad que no debes perder. Es un gato precioso.
+        </p>
         <button class="navigate-btn" onclick="window.location.href='index.html'">Volver al Inicio</button>
     </div>
 
-    <!-- Script para manejar las imágenes flotantes y la interacción -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const totalImages = 8; // Número de imágenes flotantes
+            const totalImages = 8;
             const imageUrl = "https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/imagen_2024-09-08_042919787-removebg-preview.png?raw=true";
 
-            // Crear imágenes flotantes de manera aleatoria
             for (let i = 0; i < totalImages; i++) {
                 const img = document.createElement('img');
                 img.src = imageUrl;
                 img.classList.add('floating-image');
 
-                // Colocación inicial aleatoria
                 img.style.top = Math.random() * window.innerHeight + 'px';
                 img.style.left = Math.random() * window.innerWidth + 'px';
 
-                // Añadir comportamiento de arrastre
                 img.addEventListener('mousedown', startDragging);
                 img.addEventListener('mouseup', stopDragging);
 
                 document.body.appendChild(img);
 
-                // Añadir onomatopeya al hacer clic
                 img.addEventListener('click', () => {
                     showOnomatopoeia(img);
                 });
             }
 
-            // Función para mostrar la onomatopeya
             function showOnomatopoeia(img) {
                 let textElement = img.nextElementSibling;
 
+                // Si ya hay un texto asociado a la imagen, mostrarlo, de lo contrario crear uno nuevo.
                 if (!textElement || !textElement.classList.contains('onomatopoeia')) {
                     textElement = document.createElement('div');
                     textElement.classList.add('onomatopoeia');
-                    textElement.innerText = "Como curiosidad, ambos aman las papitas de tomate, pero solo las artesanales, y por eso son twins.";
+                    textElement.textContent = "Como curiosidad, ambos aman las papitas de tomate, pero solo las artesanales, y por eso son twins.";
                     document.body.appendChild(textElement);
                 }
 
-                // Posicionar la onomatopeya sobre la imagen
-                textElement.style.top = img.offsetTop - 20 + 'px';
-                textElement.style.left = img.offsetLeft + 'px';
-
-                // Mostrar la onomatopeia
+                const rect = img.getBoundingClientRect();
+                textElement.style.top = (rect.top - 20) + 'px';
+                textElement.style.left = rect.left + 'px';
                 textElement.style.opacity = 1;
 
-                // Ocultar después de 3 segundos
                 setTimeout(() => {
                     textElement.style.opacity = 0;
-                }, 3000);
+                }, 2000); // Ocultar el texto después de 2 segundos.
             }
 
-            // Funciones de arrastre
-            function startDragging(event) {
-                const img = event.target;
+            function startDragging(e) {
+                const img = e.target;
+                let shiftX = e.clientX - img.getBoundingClientRect().left;
+                let shiftY = e.clientY - img.getBoundingClientRect().top;
+
                 img.style.position = 'absolute';
                 img.style.zIndex = 1000;
-
-                const shiftX = event.clientX - img.getBoundingClientRect().left;
-                const shiftY = event.clientY - img.getBoundingClientRect().top;
-
-                moveAt(event.pageX, event.pageY);
 
                 function moveAt(pageX, pageY) {
                     img.style.left = pageX - shiftX + 'px';
@@ -166,8 +167,11 @@
             function stopDragging() {
                 document.onmousemove = null;
             }
+
+            document.body.ondragstart = function () {
+                return false;
+            };
         });
     </script>
 </body>
 </html>
-
