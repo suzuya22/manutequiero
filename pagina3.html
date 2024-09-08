@@ -73,7 +73,7 @@
             padding: 5px;
             border-radius: 5px;
             pointer-events: none;
-            white-space: nowrap; /* Evita el corte del texto */
+            white-space: nowrap;
             display: none; /* Oculto inicialmente */
             z-index: 1000; /* Asegura que el texto esté sobre la imagen */
         }
@@ -134,7 +134,7 @@
                 }
 
                 const rect = img.getBoundingClientRect();
-                textElement.style.top = (rect.top - 40) + 'px'; // Ajustado para móvil
+                textElement.style.top = (rect.top - 40) + 'px';
                 textElement.style.left = rect.left + 'px';
                 textElement.style.display = 'block'; // Mostrar el texto
                 textElement.style.opacity = 1;
