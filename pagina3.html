@@ -12,11 +12,12 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Evitar scroll innecesario */
+            overflow: auto; /* Permitir scroll en móviles */
         }
 
         .container {
             padding: 20px;
+            position: relative; /* Para contener las imágenes flotantes */
         }
 
         h1 {
@@ -81,7 +82,7 @@
 <body>
     <div class="container">
         <h1>TIGER</h1>
-        <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/0fc6202e-0977-4e57-8f08-870d4fbd6b89.jpg?raw=true" alt="Tiger" class="cat-image">
+        <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/tiger_main.png?raw=true" alt="Tiger" class="cat-image">
         <p>
             Es imposible no hacer una página exclusiva para este pequeñito. Tiger es el gato de Manuela, 
             uno de los seres más importantes para ella en su vida. Es un gato de patas cortas y complexión gruesa, 
@@ -110,6 +111,8 @@
 
                 img.addEventListener('mousedown', startDragging);
                 img.addEventListener('mouseup', stopDragging);
+                img.addEventListener('touchstart', startDraggingTouch);
+                img.addEventListener('touchend', stopDraggingTouch);
 
                 document.body.appendChild(img);
 
@@ -121,7 +124,6 @@
             function showOnomatopoeia(img) {
                 let textElement = img.nextElementSibling;
 
-                // Si ya hay un texto asociado a la imagen, mostrarlo, de lo contrario crear uno nuevo.
                 if (!textElement || !textElement.classList.contains('onomatopoeia')) {
                     textElement = document.createElement('div');
                     textElement.classList.add('onomatopoeia');
@@ -136,10 +138,11 @@
 
                 setTimeout(() => {
                     textElement.style.opacity = 0;
-                }, 2000); // Ocultar el texto después de 2 segundos.
+                }, 2000);
             }
 
             function startDragging(e) {
+                e.preventDefault();
                 const img = e.target;
                 let shiftX = e.clientX - img.getBoundingClientRect().left;
                 let shiftY = e.clientY - img.getBoundingClientRect().top;
@@ -168,10 +171,9 @@
                 document.onmousemove = null;
             }
 
-            document.body.ondragstart = function () {
-                return false;
-            };
-        });
-    </script>
-</body>
-</html>
+            function startDraggingTouch(e) {
+                e.preventDefault();
+                const img = e.target;
+                const touch = e.touches[0];
+                let shiftX = touch.clientX - img.getBoundingClientRect().left;
+                let shiftY = touch.clientY - i
