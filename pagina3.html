@@ -109,41 +109,60 @@
                 img.style.top = Math.random() * window.innerHeight + 'px';
                 img.style.left = Math.random() * window.innerWidth + 'px';
 
-                const textElement = document.createElement('div');
-                textElement.classList.add('onomatopoeia');
-                textElement.textContent = "Como curiosidad, ambos aman las papitas de tomate, pero solo las artesanales, y por eso son twins.";
-                img.appendChild(textElement);
-                
-                document.body.appendChild(img);
-
-                img.addEventListener('mousedown', (e) => startDragging(e, img));
+                img.addEventListener('mousedown', startDragging);
                 img.addEventListener('mouseup', stopDragging);
-                img.addEventListener('touchstart', (e) => startDraggingTouch(e, img));
+                img.addEventListener('touchstart', startDraggingTouch);
                 img.addEventListener('touchend', stopDraggingTouch);
 
-                img.addEventListener('click', () => {
-                    showOnomatopoeia(img);
+                document.body.appendChild(img);
+
+                let touchTimer;
+                img.addEventListener('mousedown', (e) => {
+                    touchTimer = setTimeout(() => {
+                        showOnomatopoeia(img);
+                    }, 3000); // Mostrar onomatopeya después de 3 segundos
+                });
+
+                img.addEventListener('mouseup', () => {
+                    clearTimeout(touchTimer);
+                });
+
+                img.addEventListener('touchstart', (e) => {
+                    touchTimer = setTimeout(() => {
+                        showOnomatopoeia(img);
+                    }, 3000); // Mostrar onomatopeya después de 3 segundos
+                });
+
+                img.addEventListener('touchend', () => {
+                    clearTimeout(touchTimer);
                 });
             }
 
             function showOnomatopoeia(img) {
-                const textElement = img.querySelector('.onomatopoeia');
-                if (textElement) {
-                    const rect = img.getBoundingClientRect();
-                    textElement.style.top = (rect.top - 20) + 'px';
-                    textElement.style.left = rect.left + 'px';
-                    textElement.style.opacity = 1;
+                let textElement = img.nextElementSibling;
 
-                    setTimeout(() => {
-                        textElement.style.opacity = 0;
-                    }, 2000);
+                if (!textElement || !textElement.classList.contains('onomatopoeia')) {
+                    textElement = document.createElement('div');
+                    textElement.classList.add('onomatopoeia');
+                    textElement.textContent = "Como curiosidad, ambos aman las papitas de tomate, pero solo las artesanales, y por eso son twins.";
+                    document.body.appendChild(textElement);
                 }
+
+                const rect = img.getBoundingClientRect();
+                textElement.style.top = (rect.top - 20) + 'px';
+                textElement.style.left = rect.left + 'px';
+                textElement.style.opacity = 1;
+
+                setTimeout(() => {
+                    textElement.style.opacity = 0;
+                }, 2000);
             }
 
-            function startDragging(e, img) {
+            function startDragging(e) {
                 e.preventDefault();
-                const shiftX = e.clientX - img.getBoundingClientRect().left;
-                const shiftY = e.clientY - img.getBoundingClientRect().top;
+                const img = e.target;
+                let shiftX = e.clientX - img.getBoundingClientRect().left;
+                let shiftY = e.clientY - img.getBoundingClientRect().top;
 
                 img.style.position = 'absolute';
                 img.style.zIndex = 1000;
@@ -169,11 +188,12 @@
                 document.onmousemove = null;
             }
 
-            function startDraggingTouch(e, img) {
+            function startDraggingTouch(e) {
                 e.preventDefault();
+                const img = e.target;
                 const touch = e.touches[0];
-                const shiftX = touch.clientX - img.getBoundingClientRect().left;
-                const shiftY = touch.clientY - img.getBoundingClientRect().top;
+                let shiftX = touch.clientX - img.getBoundingClientRect().left;
+                let shiftY = touch.clientY - img.getBoundingClientRect().top;
 
                 img.style.position = 'absolute';
                 img.style.zIndex = 1000;
