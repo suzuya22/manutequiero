@@ -73,10 +73,8 @@
             padding: 5px;
             border-radius: 5px;
             pointer-events: none;
-            transform: translateY(-50px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
             white-space: nowrap; /* Evita el corte del texto */
+            display: none; /* Oculto inicialmente */
         }
     </style>
 </head>
@@ -133,12 +131,16 @@
                 }
 
                 const rect = img.getBoundingClientRect();
-                textElement.style.top = (rect.top - 20) + 'px';
+                textElement.style.top = (rect.top - 40) + 'px'; // Ajustado para móvil
                 textElement.style.left = rect.left + 'px';
+                textElement.style.display = 'block'; // Mostrar el texto
                 textElement.style.opacity = 1;
 
                 setTimeout(() => {
                     textElement.style.opacity = 0;
+                    setTimeout(() => {
+                        textElement.style.display = 'none'; // Ocultar después del desvanecimiento
+                    }, 300);
                 }, 2000);
             }
 
