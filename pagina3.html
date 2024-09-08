@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 3</title>
+    <title>Página 3 - Tiger</title>
     <style>
         /* Estilo específico para la Página 3 */
         body {
@@ -13,22 +13,26 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            overflow: auto; /* Permite el scroll vertical */
+            overflow: hidden; /* Evitar scroll innecesario */
         }
+
         .container {
             padding: 20px;
         }
+
         h1 {
             font-size: 4em;
             color: #fff; /* Color blanco para el texto */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra de texto para mayor impacto */
             font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente divertida */
         }
+
         .cat-image {
             width: 300px;
             height: auto;
             margin: 20px 0;
         }
+
         .navigate-btn {
             background-color: #FFB300; /* Amarillo más oscuro para el botón */
             color: #FFF;
@@ -39,19 +43,55 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
             margin-top: 20px;
-            text-decoration: none; /* Quita el subrayado del enlace */
         }
+
         .navigate-btn:hover {
             background-color: #FF8F00; /* Amarillo aún más oscuro al pasar el ratón */
+        }
+
+        /* Estilo para las imágenes flotantes */
+        .floating-image {
+            position: absolute;
+            width: 100px; /* Tamaño de la imagen */
+            height: auto;
+            opacity: 0.8;
+            pointer-events: none; /* No interferir con el clic en la página */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>TIGER</h1>
-        <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/0fc6202e-0977-4e57-8f08-870d4fbd6b89.jpg?raw=true" alt="Gato Garfield" class="cat-image"> <!-- Reemplaza con la URL de tu imagen -->
-        <p>Es imposible no hacer una página exclusiva para este pequeñito. Tiger es el gato de Manuela, uno de los seres más importantes para ella en su vida. Es un gato de patas cortas y complexión gruesa, que a su vez es muy grande. Destaca por ser juguetón con ella y odiar a los hombres (menos al padre de Manu). Pocas personas de su círculo tuvieron la suerte de poder conocer a Tiger en algún momento, pero todos los que lo hicieron saben que fue algo muy lindo. Este gatito desprende una cantidad de personalidad increíble que no puedes ver en otros gatos. Es simplemente maravilloso poder verlo. A todo aquel que lea esto y en algún momento tenga la oportunidad de conocer a Tiger, hágalo. Es una oportunidad que no debes perder. Es un gato precioso.</p>
-        <a href="index.html" class="navigate-btn">Volver al Inicio</a>
+        <img src="https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/0fc6202e-0977-4e57-8f08-870d4fbd6b89.jpg?raw=true" alt="Gato Garfield" class="cat-image">
+        <p>Es imposible no hacer una página exclusiva para este pequeñito. Tiger es el gato de Manuela, uno de los seres más importantes para ella en su vida. Es un gato de patas cortas y complexión gruesa, que a su vez es muuuy grande. Destaca por ser juguetón con ella y odiar a los hombres (menos al padre de Manu). Pocas personas de su círculo han tenido la suerte de conocer a Tiger en algún momento, pero todos los que lo hicieron saben que fue algo muy lindo. Este gatito desprende una cantidad de personalidad increíble que no puedes ver en otros gatos. Es simplemente maravilloso poder verlo. A todo aquel que lea esto y en algún momento tenga la oportunidad de conocer a Tiger, hágalo. Es una oportunidad que no debes perder. Es un gato precioso.</p>
+        <button class="navigate-btn" onclick="window.location.href='index.html'">Volver al Inicio</button>
     </div>
+
+    <!-- Script para generar las imágenes flotantes -->
+    <script>
+        // URL de la imagen a utilizar
+        const imageUrl = 'https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/imagen_2024-09-08_042919787-removebg-preview.png?raw=true';
+
+        // Función para generar una imagen flotante en una posición aleatoria
+        function createFloatingImage() {
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.classList.add('floating-image');
+
+            // Generar posición aleatoria
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+
+            img.style.left = `${randomX}px`;
+            img.style.top = `${randomY}px`;
+
+            document.body.appendChild(img);
+        }
+
+        // Generar 8 imágenes flotantes
+        for (let i = 0; i < 8; i++) {
+            createFloatingImage();
+        }
+    </script>
 </body>
 </html>
