@@ -55,7 +55,22 @@
             width: 100px; /* Tamaño de la imagen */
             height: auto;
             opacity: 0.8;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Efecto de transición */
+        }
+
+        /* Estilo para el texto tipo onomatopeya */
+        .onomatopoeia {
+            position: absolute;
+            font-size: 1em;
+            color: #FFD700; /* Color amarillo oro */
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo negro translúcido */
+            padding: 5px;
+            border-radius: 5px;
             pointer-events: none; /* No interferir con el clic en la página */
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -67,7 +82,7 @@
         <button class="navigate-btn" onclick="window.location.href='index.html'">Volver al Inicio</button>
     </div>
 
-    <!-- Script para generar las imágenes flotantes -->
+    <!-- Script para generar las imágenes flotantes y mostrar texto al hacer clic -->
     <script>
         // URL de la imagen a utilizar
         const imageUrl = 'https://github.com/suzuya22/manutequiero/blob/main/MULTIMEDIA/IMAGENES/imagen_2024-09-08_042919787-removebg-preview.png?raw=true';
@@ -84,6 +99,35 @@
 
             img.style.left = `${randomX}px`;
             img.style.top = `${randomY}px`;
+
+            // Crear el texto tipo onomatopeya
+            const text = document.createElement('div');
+            text.classList.add('onomatopoeia');
+            text.textContent = "Como curiosidad, ambos aman las papitas de tomate, pero solo las artesanales, y por eso son twins.";
+            document.body.appendChild(text);
+
+            // Mostrar el texto al hacer clic o tocar
+            img.addEventListener('mousedown', showOnomatopoeia);
+            img.addEventListener('touchstart', showOnomatopoeia);
+
+            // Función para mover la imagen y mostrar el texto
+            function showOnomatopoeia(event) {
+                // Mover la imagen a la nueva posición del cursor
+                const newX = event.clientX || event.touches[0].clientX;
+                const newY = event.clientY || event.touches[0].clientY;
+                img.style.left = `${newX - 50}px`; // Ajustar la posición de la imagen
+                img.style.top = `${newY - 50}px`;
+
+                // Mover el texto y mostrarlo
+                text.style.left = `${newX}px`;
+                text.style.top = `${newY - 70}px`;
+                text.style.opacity = 1; // Mostrar el texto
+
+                // Ocultar el texto después de un tiempo
+                setTimeout(() => {
+                    text.style.opacity = 0; // Ocultar el texto
+                }, 2000);
+            }
 
             document.body.appendChild(img);
         }
