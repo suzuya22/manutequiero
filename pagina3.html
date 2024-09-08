@@ -109,12 +109,17 @@
                 img.style.top = Math.random() * window.innerHeight + 'px';
                 img.style.left = Math.random() * window.innerWidth + 'px';
 
-                img.addEventListener('mousedown', startDragging);
-                img.addEventListener('mouseup', stopDragging);
-                img.addEventListener('touchstart', startDraggingTouch);
-                img.addEventListener('touchend', stopDraggingTouch);
-
+                const textElement = document.createElement('div');
+                textElement.classList.add('onomatopoeia');
+                textElement.textContent = "Como curiosidad, ambos aman las papitas de tomate, pero solo las artesanales, y por eso son twins.";
+                img.appendChild(textElement);
+                
                 document.body.appendChild(img);
+
+                img.addEventListener('mousedown', (e) => startDragging(e, img));
+                img.addEventListener('mouseup', stopDragging);
+                img.addEventListener('touchstart', (e) => startDraggingTouch(e, img));
+                img.addEventListener('touchend', stopDraggingTouch);
 
                 img.addEventListener('click', () => {
                     showOnomatopoeia(img);
@@ -122,30 +127,23 @@
             }
 
             function showOnomatopoeia(img) {
-                let textElement = img.nextElementSibling;
+                const textElement = img.querySelector('.onomatopoeia');
+                if (textElement) {
+                    const rect = img.getBoundingClientRect();
+                    textElement.style.top = (rect.top - 20) + 'px';
+                    textElement.style.left = rect.left + 'px';
+                    textElement.style.opacity = 1;
 
-                if (!textElement || !textElement.classList.contains('onomatopoeia')) {
-                    textElement = document.createElement('div');
-                    textElement.classList.add('onomatopoeia');
-                    textElement.textContent = "Como curiosidad, ambos aman las papitas de tomate, pero solo las artesanales, y por eso son twins.";
-                    document.body.appendChild(textElement);
+                    setTimeout(() => {
+                        textElement.style.opacity = 0;
+                    }, 2000);
                 }
-
-                const rect = img.getBoundingClientRect();
-                textElement.style.top = (rect.top - 20) + 'px';
-                textElement.style.left = rect.left + 'px';
-                textElement.style.opacity = 1;
-
-                setTimeout(() => {
-                    textElement.style.opacity = 0;
-                }, 2000);
             }
 
-            function startDragging(e) {
+            function startDragging(e, img) {
                 e.preventDefault();
-                const img = e.target;
-                let shiftX = e.clientX - img.getBoundingClientRect().left;
-                let shiftY = e.clientY - img.getBoundingClientRect().top;
+                const shiftX = e.clientX - img.getBoundingClientRect().left;
+                const shiftY = e.clientY - img.getBoundingClientRect().top;
 
                 img.style.position = 'absolute';
                 img.style.zIndex = 1000;
@@ -171,12 +169,11 @@
                 document.onmousemove = null;
             }
 
-            function startDraggingTouch(e) {
+            function startDraggingTouch(e, img) {
                 e.preventDefault();
-                const img = e.target;
                 const touch = e.touches[0];
-                let shiftX = touch.clientX - img.getBoundingClientRect().left;
-                let shiftY = touch.clientY - img.getBoundingClientRect().top;
+                const shiftX = touch.clientX - img.getBoundingClientRect().left;
+                const shiftY = touch.clientY - img.getBoundingClientRect().top;
 
                 img.style.position = 'absolute';
                 img.style.zIndex = 1000;
