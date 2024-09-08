@@ -208,16 +208,6 @@
             function stopDraggingTouch() {
                 document.ontouchmove = null;
             }
-
-            function onMouseMove(event) {
-                // Evitar que se maneje el movimiento del ratón cuando no se está arrastrando
-                if (event.buttons === 0) return;
-                const img = document.querySelector('.floating-image');
-                if (img) {
-                    img.style.left = event.pageX - img.offsetWidth / 2 + 'px';
-                    img.style.top = event.pageY - img.offsetHeight / 2 + 'px';
-                }
-            }
         });
     </script>
 </body>
