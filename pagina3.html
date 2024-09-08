@@ -55,7 +55,7 @@
             width: 100px; /* Tamaño de la imagen */
             height: auto;
             opacity: 0.8;
-            cursor: pointer;
+            cursor: grab;
             transition: transform 0.3s ease; /* Efecto de transición */
         }
 
@@ -103,31 +103,65 @@
             // Crear el texto tipo onomatopeya
             const text = document.createElement('div');
             text.classList.add('onomatopoeia');
-            text.textContent = "Como curiosidad, ambos aman las papitas de limom, pero solo las artesanales, y por eso son twins.";
+            text.textContent = "Como curiosidad, ambos aman las papitas de tomate, pero solo las artesanales, y por eso son twins.";
             document.body.appendChild(text);
 
-            // Mostrar el texto al hacer clic o tocar
-            img.addEventListener('mousedown', showOnomatopoeia);
-            img.addEventListener('touchstart', showOnomatopoeia);
+            // Variables para manejar el arrastre
+            let isDragging = false;
+            let offsetX, offsetY;
 
-            // Función para mover la imagen y mostrar el texto
-            function showOnomatopoeia(event) {
-                // Mover la imagen a la nueva posición del cursor
-                const newX = event.clientX || event.touches[0].clientX;
-                const newY = event.clientY || event.touches[0].clientY;
-                img.style.left = `${newX - 50}px`; // Ajustar la posición de la imagen
-                img.style.top = `${newY - 50}px`;
-
-                // Mover el texto y mostrarlo
-                text.style.left = `${newX}px`;
-                text.style.top = `${newY - 70}px`;
+            // Mostrar el texto al soltar el clic o toque
+            function showOnomatopoeia() {
+                text.style.left = `${parseInt(img.style.left) + 50}px`;
+                text.style.top = `${parseInt(img.style.top) - 30}px`;
                 text.style.opacity = 1; // Mostrar el texto
 
-                // Ocultar el texto después de un tiempo
                 setTimeout(() => {
                     text.style.opacity = 0; // Ocultar el texto
                 }, 2000);
             }
+
+            // Función para iniciar el arrastre
+            function startDrag(e) {
+                isDragging = true;
+                img.style.cursor = 'grabbing';
+                offsetX = e.clientX - img.getBoundingClientRect().left;
+                offsetY = e.clientY - img.getBoundingClientRect().top;
+
+                // Para móviles
+                if (e.touches) {
+                    offsetX = e.touches[0].clientX - img.getBoundingClientRect().left;
+                    offsetY = e.touches[0].clientY - img.getBoundingClientRect().top;
+                }
+
+                document.addEventListener('mousemove', drag);
+                document.addEventListener('touchmove', drag);
+            }
+
+            // Función para arrastrar la imagen
+            function drag(e) {
+                if (isDragging) {
+                    const x = e.clientX || e.touches[0].clientX;
+                    const y = e.clientY || e.touches[0].clientY;
+                    img.style.left = `${x - offsetX}px`;
+                    img.style.top = `${y - offsetY}px`;
+                }
+            }
+
+            // Función para detener el arrastre
+            function stopDrag() {
+                isDragging = false;
+                img.style.cursor = 'grab';
+                document.removeEventListener('mousemove', drag);
+                document.removeEventListener('touchmove', drag);
+                showOnomatopoeia();
+            }
+
+            // Eventos para arrastrar la imagen
+            img.addEventListener('mousedown', startDrag);
+            img.addEventListener('touchstart', startDrag);
+            document.addEventListener('mouseup', stopDrag);
+            document.addEventListener('touchend', stopDrag);
 
             document.body.appendChild(img);
         }
