@@ -73,9 +73,9 @@
             padding: 5px;
             border-radius: 5px;
             pointer-events: none;
-            white-space: nowrap;
-            display: none; /* Oculto inicialmente */
-            z-index: 1000; /* Asegura que el texto esté sobre la imagen */
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -111,9 +111,7 @@
 
                 img.addEventListener('mousedown', startDragging);
                 img.addEventListener('mouseup', stopDragging);
-                img.addEventListener('mousemove', onMouseMove);
                 img.addEventListener('touchstart', startDraggingTouch);
-                img.addEventListener('touchmove', onTouchMove);
                 img.addEventListener('touchend', stopDraggingTouch);
 
                 document.body.appendChild(img);
@@ -134,16 +132,12 @@
                 }
 
                 const rect = img.getBoundingClientRect();
-                textElement.style.top = (rect.top - 40) + 'px';
+                textElement.style.top = (rect.top - 20) + 'px';
                 textElement.style.left = rect.left + 'px';
-                textElement.style.display = 'block'; // Mostrar el texto
                 textElement.style.opacity = 1;
 
                 setTimeout(() => {
                     textElement.style.opacity = 0;
-                    setTimeout(() => {
-                        textElement.style.display = 'none'; // Ocultar después del desvanecimiento
-                    }, 300);
                 }, 2000);
             }
 
