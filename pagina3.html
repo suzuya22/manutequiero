@@ -75,6 +75,7 @@
             pointer-events: none;
             white-space: nowrap; /* Evita el corte del texto */
             display: none; /* Oculto inicialmente */
+            z-index: 1000; /* Asegura que el texto esté sobre la imagen */
         }
     </style>
 </head>
@@ -110,7 +111,9 @@
 
                 img.addEventListener('mousedown', startDragging);
                 img.addEventListener('mouseup', stopDragging);
+                img.addEventListener('mousemove', onMouseMove);
                 img.addEventListener('touchstart', startDraggingTouch);
+                img.addEventListener('touchmove', onTouchMove);
                 img.addEventListener('touchend', stopDraggingTouch);
 
                 document.body.appendChild(img);
@@ -204,6 +207,16 @@
 
             function stopDraggingTouch() {
                 document.ontouchmove = null;
+            }
+
+            function onMouseMove(event) {
+                // Evitar que se maneje el movimiento del ratón cuando no se está arrastrando
+                if (event.buttons === 0) return;
+                const img = document.querySelector('.floating-image');
+                if (img) {
+                    img.style.left = event.pageX - img.offsetWidth / 2 + 'px';
+                    img.style.top = event.pageY - img.offsetHeight / 2 + 'px';
+                }
             }
         });
     </script>
